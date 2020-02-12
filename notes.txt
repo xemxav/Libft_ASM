@@ -1,0 +1,95 @@
+Il faut faire une section comme :
+
+section .text -> indique que ca va etre dans la section text
+
+section .text
+	global start -> va etre defini plus loi
+	global _main
+
+start: -> tout programme commence par un point d'entrer (c'est un label
+	call _main -> on appelle le label
+	ret
+
+_main:
+	ret
+
+compilation :
+
+nasm -f macho64 fichier.s -o fichier.o  -> transforme en objet
+ld fichier.o -macosx_version_min 10.8 -lSystem -> va linker et compiler un a.out
+
+appeler une fonction de la libc :
+
+section .data
+hello: -> label
+	.string db "Hello World", 10 > c'est un membre, db -> donnee de bite, le ,10 correspond a un \n
+	.len eq $ - hello.string $ - hello.string veut dire : adresse devant .len moins l'adresse de hello.string
+
+section .text > elle contient les symbole dont le programme a besoin
+	global start
+	global _main
+	extern _printf  > elle existe en dehors dans la libc
+
+start:
+	call _main
+	ret
+
+_main:
+	push rbp -> je sauvegarde le registre sur la stack
+	mov rbp, rsp -> je prend rsp et je met dans rbp rbp = rsp
+	sub rsp, 16 -> demande 16 octet
+	lea rdi, [rel hello.string] -> il faut mettre des arguments dans des registres, je charge l'adresse de la string (lea : load effective adress) dans rdi
+	call _printf > j'appelle printf
+	leave - > je quitte la stack
+	ret
+
+
+Appel system :
+
+%define MACH_SYSCALL (nb)	0x2000000 | nb -> prend un nombre et l'ajoute a 0x2000000
+%define STDOUT				1
+%define WRITE				4
+
+section .data
+	.string db "Hello World!", 10
+	.len equ $ - hello.string
+
+section .text
+	global start
+	global _main
+
+start:
+	call _main
+	ret
+
+_main:
+	push rbp
+	mov rbp, rsp
+	sub rsp, 16
+	mov rdi, STDOUT -> je passe le 1er argument, je charge l'adresse
+	lea rsi, [rel hello.string]
+	mov rdx, hello.len , je charge la taille
+	mov rax, MACH_SYSCALL(WRITE)
+	syscall
+	leave
+	ret
+
+references a lire :
+	OS X Assembler Reference http://apfel.mathematik.uni-ulm.de/~lehn/sghpc_ws14/OSXAssembler.pdf
+	https://stackoverflow.com/questions/2535989/what-are-the-calling-conventions-for-unix-linux-system-calls-on-i386-and-x86-6
+	System V Application Binary Interface https://uclibc.org/docs/psABI-x86_64.pdf
+	pour connaitre les syscall https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master
+	https://software.intel.com/en-us/articles/intel-sdm
+
+https://www.cs.virginia.edu/~evans/cs216/guides/x86.html
+https://eli.thegreenplace.net/2011/02/04/where-the-top-of-the-stack-is-on-x86/
+https://beta.hackndo.com/stack-introduction/
+https://asmtutor.com/#lesson1
+https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture
+https://syscalls.w3challs.com/?arch=x86_64
+http://www.lacl.fr/tan/asm
+https://nasm.us/doc/nasmdoc0.html
+A faire :
+	trouver comment faire une comparaison en ASM
+	trouver comment retourner un valeur
+	comment faire une fonction qui prend un ou plusieurs parammetre
