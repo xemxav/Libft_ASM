@@ -3,6 +3,7 @@
 int ft_isprint(int c);
 int ft_isascii(int c);
 int ft_isdigit(int c);
+int ft_isalpha(int c);
 
 int main()
 {
@@ -28,5 +29,17 @@ int main()
 	printf("ft_isdigit('5') 1 = %d\n", ft_isdigit('5'));
 	printf("ft_isdigit(25) 0 = %d\n", ft_isdigit(25));
 	printf("ft_isdigit(58) 0 = %d\n", ft_isdigit(58));
+
+	printf("\n== ft_isalpha entre 65 et 90 compris et 97 et 122 compris==\n");
+	printf("ft_isalpha(65) 1 = %d\n", ft_isalpha(65));
+	printf("ft_isalpha(90) 1 = %d\n", ft_isalpha(90));
+	printf("ft_isalpha(97) 1 = %d\n", ft_isalpha(97));
+	printf("ft_isalpha(122) 1 = %d\n", ft_isalpha(122));
+	printf("ft_isalpha(70) 1 = %d\n", ft_isalpha(70));
+	printf("ft_isalpha(100) 1 = %d\n", ft_isalpha(100));
+	printf("ft_isalpha(64) 0 = %d\n", ft_isalpha(64));
+	printf("ft_isalpha(91) 0 = %d\n", ft_isalpha(91));
+	printf("ft_isalpha(96) 0 = %d\n", ft_isalpha(96));
+	printf("ft_isalpha(123) 0 = %d\n", ft_isalpha(123));
 	return (0);
 }

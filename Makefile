@@ -17,7 +17,8 @@ HEADER = $(PATH_INC)libfts.h
 
 FILES = ft_isprint \
 		ft_isascii \
-		ft_isdigit
+		ft_isdigit \
+		ft_isalpha
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))
