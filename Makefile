@@ -15,7 +15,8 @@ HEADER = $(PATH_INC)libfts.h
 #                              LIB FILES                                       #
 #******************************************************************************#
 
-FILES = ft_isprint
+FILES = ft_isprint \
+		ft_isascii
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))
@@ -28,8 +29,8 @@ SRC = $($(addsuffix .s , $(FILES)))
 all: $(NAME)
 
 test: $(NAME)
-	$(CC) $(FLAGS) test_des_fonctions.c libfts.a -o test.out
-	./test.out
+	@$(CC) $(FLAGS) test_des_fonctions.c libfts.a -o test.out
+	@./test.out
 
 $(NAME): $(PATH_OBJ) $(OBJ)
 	ar rcs $(NAME) $(OBJ)
