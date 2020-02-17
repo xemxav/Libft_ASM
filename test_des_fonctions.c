@@ -7,6 +7,8 @@ t_func_couple g_func_tab[] = {
 		{&isdigit, &ft_isdigit, "isdigit"},
 		{&isalnum, &ft_isalnum, "isalnum"},
 		{&isprint, &ft_isprint, "isprint"},
+		{&toupper, &ft_toupper, "toupper"},
+		{&tolower, &ft_tolower, "tolower"},
 		{NULL, NULL, NULL},
 };
 
@@ -20,7 +22,8 @@ void		test_range(t_func_couple *couple, int min, int max)
 	{
 		if (couple->my_func(min) != couple->off_func(min))
 		{
-			printf("%s fails for %d\n", couple->name, errors);
+			printf("%s fails for %d\n", couple->name, min);
+			printf("off value: %d, my value :%d\n", couple->off_func(min), couple->my_func(min));
 			errors++;
 		}
 		min++;

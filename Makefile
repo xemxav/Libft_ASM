@@ -19,7 +19,9 @@ FILES = ft_isprint \
 		ft_isascii \
 		ft_isdigit \
 		ft_isalpha \
-		ft_isalnum
+		ft_isalnum \
+		ft_toupper \
+		ft_tolower \
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))
