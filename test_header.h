@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
+
 
 typedef struct s_func_couple
 {
@@ -24,5 +26,6 @@ int ft_isalpha(int c);
 int ft_isalnum(int c);
 int ft_toupper(int c);
 int ft_tolower(int c);
+int ft_strlen(const char *s);
 
 #endif //LIBFT_ASM_TEST_HEADER_H

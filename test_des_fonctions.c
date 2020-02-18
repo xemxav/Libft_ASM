@@ -12,6 +12,11 @@ t_func_couple g_func_tab[] = {
 		{NULL, NULL, NULL},
 };
 
+char *hello = "hello world\0";
+char *nul = "\0";
+char *one = "S\0";
+char *special = "\n\t\0";
+
 void		test_range(t_func_couple *couple, int min, int max)
 {
 	int errors;
@@ -34,6 +39,36 @@ void		test_range(t_func_couple *couple, int min, int max)
 		printf("%s works perfectly\n", couple->name);
 }
 
+void test_strlen()
+{
+	int error = 0;
+
+	if (ft_strlen(hello) != strlen(hello))
+	{
+		printf("ft_strlen ne fonctionne pas sur %s\n", "hello");
+		error++;
+	}
+	if (ft_strlen(nul) != strlen(nul))
+	{
+		printf("ft_strlen ne fonctionne pas sur %s\n", "nul");
+		error++;
+	}
+	if (ft_strlen(one) != strlen(one))
+	{
+		printf("ft_strlen ne fonctionne pas sur %s\n", "one");
+		error++;
+	}
+	if (ft_strlen(special) != strlen(special))
+	{
+		printf("ft_strlen ne fonctionne pas sur %s\n", "special");
+		error++;
+	}
+	if (error)
+		printf("il y a %d erreurs sur ft_strlen\n", error);
+	else
+		printf("ft_strlen fonctionne parfaitement\n");
+}
+
 int main()
 {
 	int i;
@@ -44,5 +79,6 @@ int main()
 		test_range(g_func_tab + i, -5, 128);
 		i++;
 	}
+	test_strlen();
 	return (0);
 }
