@@ -22,7 +22,8 @@ FILES = ft_isprint \
 		ft_isalnum \
 		ft_toupper \
 		ft_tolower \
-		ft_strlen
+		ft_strlen \
+		ft_puts
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))

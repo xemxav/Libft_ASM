@@ -46,7 +46,7 @@ _main:
 
 Appel system :
 
-%define MACH_SYSCALL (nb)	0x2000000 | nb -> prend un nombre et l'ajoute a 0x2000000
+%define MACH_SYSCALL(nb)	0x2000000 | nb -> prend un nombre et l'ajoute a 0x2000000
 %define STDOUT				1
 %define WRITE				4
 
