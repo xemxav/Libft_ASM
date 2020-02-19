@@ -16,9 +16,12 @@ _ft_strdup:
 	push rax
 	mov rdi, rax
 	call _malloc
+	test rax, rax
+	jz _ft_strdup.exit
 	mov rdi, rax
 	pop rdx
 	pop rsi
 	call _ft_memcpy
+.exit:
 	leave
 	ret

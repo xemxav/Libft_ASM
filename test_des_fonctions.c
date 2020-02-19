@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_des_fonctions.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xmoreau <xmoreau@student.le-101.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/19 17:54:09 by xmoreau           #+#    #+#             */
+/*   Updated: 2020/02/19 18:24:54 by xmoreau          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "test_header.h"
 
@@ -155,11 +166,23 @@ void test_strdup()
 {
 //	char *s = "hello world\0";
 
-	char *s2 = strdup();
+	char *s2 = strdup("coucou");
 	printf("%s %p\n", s2, s2);
 	char *s = ft_strdup("\t");
 	printf("%s %p\n", s, s);
 	free(s2);
+}
+
+void test_strcat()
+{
+	char s[20];
+	char *s2;
+
+	ft_bzero(s, 20);
+	ft_memset(s, 'a', 10);
+	s2 = ft_strcat(s, "coucou\0");
+	if (s2 == s)
+		printf("renvoie la bonne adresse\n");
 }
 
 int main()
@@ -178,5 +201,6 @@ int main()
 	test_bzero(20);
 	test_memcpy();
 	test_strdup();
+	test_strcat();
 	return (0);
 }
