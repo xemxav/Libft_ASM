@@ -99,11 +99,10 @@ void test_strlen()
 //		printf("ft_puts fonctionne parfaitement\n");
 //}
 
-void	test_memset()
+void	test_memset(int size)
 {
 	char *s;
 	char *s2;
-	int size = 20;
 
 	s =(char*)malloc(size);
 	s2 = (char*)ft_memset((void*)s, 65, size);
@@ -111,6 +110,22 @@ void	test_memset()
 	printf("%s\n",s);
 	if (s == s2)
 		printf("renvoie la bonne adresse\n");
+	free(s);
+}
+
+void test_bzero(int size)
+{
+	char *ptr;
+	ptr = (char*)malloc(size);
+	ft_bzero(ptr, size);
+	int i = 0;
+	while (i < size)
+	{
+		printf("%d", *(int*)(ptr+i));
+		i++;
+	}
+	printf("\n");
+	free(ptr);
 }
 
 int main()
@@ -125,6 +140,7 @@ int main()
 	}
 	test_strlen();
 //	test_puts();
-	test_memset();
+	test_memset(0);
+	test_bzero(0);
 	return (0);
 }

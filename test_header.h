@@ -31,5 +31,6 @@ int ft_tolower(int c);
 int ft_strlen(const char *s);
 int ft_puts(const char *s);
 void *ft_memset (void *s, int c, size_t n);
+void ft_bzero(void *s, size_t n);
 
 #endif //LIBFT_ASM_TEST_HEADER_H
