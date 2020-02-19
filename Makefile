@@ -25,7 +25,8 @@ FILES = ft_isprint \
 		ft_strlen \
 		ft_puts\
 		ft_memset \
-		ft_bzero
+		ft_bzero \
+		ft_memcpy \
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))

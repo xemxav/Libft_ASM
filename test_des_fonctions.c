@@ -128,6 +128,29 @@ void test_bzero(int size)
 	free(ptr);
 }
 
+void test_memcpy()
+{
+	char *s1;
+	char *s2;
+	char *s3;
+
+	s1 = (char*)malloc(20);
+	ft_memset(s1, 'A', 19);
+	s1[19] = '\0';
+	s2 = (char*)malloc(20);
+	ft_memset(s2, 'B', 19);
+	s2[19] = '\0';
+	printf("s1 = %s\n", s1);
+	printf("s2 = %s\n", s2);
+	s3 = ft_memcpy(s1, s2, 19);
+	printf("s1 = %s\n", s1);
+	printf("s2 = %s\n", s2);
+	if (s3 == s1)
+		printf("renvoie la bonne adresse\n");
+	free(s1);
+	free(s2);
+}
+
 int main()
 {
 	int i;
@@ -140,7 +163,8 @@ int main()
 	}
 	test_strlen();
 //	test_puts();
-	test_memset(0);
-	test_bzero(0);
+	test_memset(20);
+	test_bzero(20);
+	test_memcpy();
 	return (0);
 }
