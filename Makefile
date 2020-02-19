@@ -27,6 +27,7 @@ FILES = ft_isprint \
 		ft_memset \
 		ft_bzero \
 		ft_memcpy \
+		ft_strdup \
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))

@@ -151,6 +151,17 @@ void test_memcpy()
 	free(s2);
 }
 
+void test_strdup()
+{
+//	char *s = "hello world\0";
+
+	char *s2 = strdup();
+	printf("%s %p\n", s2, s2);
+	char *s = ft_strdup("\t");
+	printf("%s %p\n", s, s);
+	free(s2);
+}
+
 int main()
 {
 	int i;
@@ -166,5 +177,6 @@ int main()
 	test_memset(20);
 	test_bzero(20);
 	test_memcpy();
+	test_strdup();
 	return (0);
 }
