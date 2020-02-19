@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
+
 
 
 typedef struct s_func_couple
@@ -28,5 +30,6 @@ int ft_toupper(int c);
 int ft_tolower(int c);
 int ft_strlen(const char *s);
 int ft_puts(const char *s);
+void *ft_memset (void *s, int c, size_t n);
 
 #endif //LIBFT_ASM_TEST_HEADER_H
