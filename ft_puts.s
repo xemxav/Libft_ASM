@@ -20,19 +20,24 @@ _ft_puts:
 	cmp rdi, 0
 	je _ft_puts.null
 
-	push rdi ; je charge l'adresse sur la stack
+	push rdi
 	call _ft_strlen
 	pop rsi
 	mov rdi, STDOUT
 	mov rdx, rax
 	mov rax, MACH_SYSCALL(WRITE)
 	syscall
+	test rax, rax
+	js _ft_puts.error
 
 .endline:
 	lea rsi, [rel lf]
-    mov rdx, 1
-    mov rax, MACH_SYSCALL(WRITE)
-    syscall
+	mov rdx, 1
+	mov rax, MACH_SYSCALL(WRITE)
+	syscall
+	test rax, rax
+	js _ft_puts.error
+	mov rax, 10
 	leave
 	ret
 
@@ -42,5 +47,11 @@ _ft_puts:
 	mov rdx, len
 	mov rax, MACH_SYSCALL(WRITE)
 	syscall
+	test rax, rax
+	js _ft_puts.error
 	jmp _ft_puts.endline
 
+.error:
+	mov rax, -1
+	leave
+	ret

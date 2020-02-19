@@ -98,9 +98,9 @@ void test_puts()
 //	else
 //		printf("ft_puts fonctionne parfaitement\n");
 
-	int a = puts(0);
+	int a = puts("coucou Audric");
 	printf("%d\n", a);
-	a = ft_puts(0);
+	a = ft_puts("coucou Audric");
 	printf("%d\n", a);
 }
 
