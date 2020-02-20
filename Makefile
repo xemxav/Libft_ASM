@@ -28,7 +28,9 @@ FILES = ft_isprint \
 		ft_bzero \
 		ft_memcpy \
 		ft_strdup \
-		ft_strcat
+		ft_strcat \
+		ft_cat
+
 
 OBJ = $(addprefix $(PATH_OBJ), $(addsuffix .o , $(FILES)))
 SRC = $($(addsuffix .s , $(FILES)))
@@ -41,7 +43,7 @@ SRC = $($(addsuffix .s , $(FILES)))
 all: $(NAME)
 
 test: $(NAME)
-	@$(CC) $(FLAGS) test_des_fonctions.c libfts.a -o test.out
+	@$(CC) $(FLAGS) test_des_fonctions.c $(NAME) -o test.out
 	@./test.out
 
 $(NAME): $(PATH_OBJ) $(OBJ)
