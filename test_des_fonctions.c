@@ -6,7 +6,7 @@
 /*   By: xmoreau <xmoreau@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:54:09 by xmoreau           #+#    #+#             */
-/*   Updated: 2020/02/20 17:26:51 by xmoreau          ###   ########lyon.fr   */
+/*   Updated: 2020/02/21 17:17:10 by xmoreau          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,7 @@ t_func_couple g_func_tab[] = {
 
 void test_cat()
 {
-	int fd = open("ft_bzero.s", O_RDONLY);
+	int fd = open("Makefile", O_RDWR);
 
 	ft_cat(fd);
 	close(fd);

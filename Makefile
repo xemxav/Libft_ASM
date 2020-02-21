@@ -43,7 +43,7 @@ SRC = $($(addsuffix .s , $(FILES)))
 all: $(NAME)
 
 test: $(NAME)
-	@$(CC) $(FLAGS) test_des_fonctions.c $(NAME) -o test.out
+	$(CC) $(FLAGS) test_des_fonctions.c $(NAME) -o test.out
 	@./test.out
 
 $(NAME): $(PATH_OBJ) $(OBJ)

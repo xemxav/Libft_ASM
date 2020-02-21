@@ -90,6 +90,3 @@ https://syscalls.w3challs.com/?arch=x86_64
 http://www.lacl.fr/tan/asm
 https://nasm.us/doc/nasmdoc0.html
 A faire :
-	trouver comment faire une comparaison en ASM
-	trouver comment retourner un valeur
-	comment faire une fonction qui prend un ou plusieurs parammetre

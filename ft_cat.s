@@ -9,26 +9,31 @@ section .bss
 	buffer resb 255
 
 section .text
-
-
+	extern read
 
 _ft_cat:
 	push rbp
 	mov rbp, rsp
 
-	push rdi
 	test rdi, rdi
-	js _ft_cat.exit_fail
+	js _ft_cat.exit
+	mov r10, rdi
+.read:
+	mov rdi, r10
+	lea rsi, [rel buffer]
 	mov rdx, 255
 	mov rax, MACH_SYSCALL(READ)
 	syscall
+	jc _ft_cat.exit
+	cmp rax, 0
+	jle _ft_cat.exit
 	mov rdi, STDOUT
-	lea rsi, [rel buffer]
 	mov rdx, rax
 	mov rax, MACH_SYSCALL(WRITE)
 	syscall
+	jmp _ft_cat.read
 
-.exit_fail:
+.exit:
 	mov rax, 0
 	leave
 	ret
