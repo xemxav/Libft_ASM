@@ -17,9 +17,9 @@ _ft_cat:
 
 	test rdi, rdi
 	js _ft_cat.exit
-	mov r10, rdi
+	push rdi
 .read:
-	mov rdi, r10
+	pop rdi
 	lea rsi, [rel buffer]
 	mov rdx, 255
 	mov rax, MACH_SYSCALL(READ)
@@ -27,6 +27,7 @@ _ft_cat:
 	jc _ft_cat.exit
 	cmp rax, 0
 	jle _ft_cat.exit
+	push rdi
 	mov rdi, STDOUT
 	mov rdx, rax
 	mov rax, MACH_SYSCALL(WRITE)
