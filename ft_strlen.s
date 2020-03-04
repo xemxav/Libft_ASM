@@ -1,3 +1,4 @@
+;size_t ft_strlen(char *s)
 
 global _ft_strlen
 
@@ -7,17 +8,13 @@ _ft_strlen:
 	push rbp
 	mov rbp, rsp
 
-	mov rax, rdi
-	mov rbx, rax
-.counting:
-	cmp byte [rax], 0
-	je _ft_strlen.finished
-	inc rax
-	jmp _ft_strlen.counting
-
-.finished:
-	sub rax, rbx
+	cld
+	xor rax, rax
+	xor rcx, rcx
+	not rcx
+	repne scasb
+	not rcx
+	mov rax, rcx
+	sub rax, 1
 	leave
 	ret
-
-	repzn inc rcx

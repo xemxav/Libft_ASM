@@ -6,7 +6,7 @@
 /*   By: xmoreau <xmoreau@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:54:09 by xmoreau           #+#    #+#             */
-/*   Updated: 2020/03/04 15:09:33 by xmoreau          ###   ########lyon.fr   */
+/*   Updated: 2020/03/04 15:10:23 by xmoreau          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,11 +205,11 @@ int main()
 //		test_range(g_func_tab + i, -5, 128);
 //		i++;
 //	}
-//	test_strlen();
+	test_strlen();
 //	test_puts();
 //	test_memset(20);
 //	test_bzero(20);
-	test_memcpy();
+//	test_memcpy();
 //	test_strdup();
 //	test_strcat();
 //	test_cat();
