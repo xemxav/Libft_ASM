@@ -89,4 +89,12 @@ https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture
 https://syscalls.w3challs.com/?arch=x86_64
 http://www.lacl.fr/tan/asm
 https://nasm.us/doc/nasmdoc0.html
-A faire :
+
+https://www.gladir.com/LEXIQUE/ASM/DICTIONN.HTM
+
+A reprendre :
+memeset
+memcpy
+
+le retour de cat si un fail -> 1
+le retour

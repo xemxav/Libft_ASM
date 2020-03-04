@@ -6,7 +6,7 @@
 /*   By: xmoreau <xmoreau@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:54:09 by xmoreau           #+#    #+#             */
-/*   Updated: 2020/03/02 15:29:24 by xmoreau          ###   ########lyon.fr   */
+/*   Updated: 2020/03/04 15:09:33 by xmoreau          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,10 +146,10 @@ void test_memcpy()
 	char *s3;
 
 	s1 = (char*)malloc(20);
-	ft_memset(s1, 'A', 19);
+	memset(s1, 'A', 19);
 	s1[19] = '\0';
 	s2 = (char*)malloc(20);
-	ft_memset(s2, 'B', 19);
+	memset(s2, 'B', 19);
 	s2[19] = '\0';
 	printf("s1 = %s\n", s1);
 	printf("s2 = %s\n", s2);
@@ -197,21 +197,21 @@ void test_cat()
 
 int main()
 {
-	int i;
-
-	i = 0;
-	while (g_func_tab[i].off_func)
-	{
-		test_range(g_func_tab + i, -5, 128);
-		i++;
-	}
-	test_strlen();
-	test_puts();
-	test_memset(20);
-	test_bzero(20);
+//	int i;
+//
+//	i = 0;
+//	while (g_func_tab[i].off_func)
+//	{
+//		test_range(g_func_tab + i, -5, 128);
+//		i++;
+//	}
+//	test_strlen();
+//	test_puts();
+//	test_memset(20);
+//	test_bzero(20);
 	test_memcpy();
-	test_strdup();
-	test_strcat();
-	test_cat();
+//	test_strdup();
+//	test_strcat();
+//	test_cat();
 	return (0);
 }

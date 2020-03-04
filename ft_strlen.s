@@ -19,3 +19,5 @@ _ft_strlen:
 	sub rax, rbx
 	leave
 	ret
+
+	repzn inc rcx

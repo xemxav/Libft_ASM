@@ -16,7 +16,7 @@ _ft_cat:
 	mov rbp, rsp
 
 	test rdi, rdi
-	js _ft_cat.exit
+	js _ft_cat.exit_fail
 	push rdi
 .read:
 	pop rdi
@@ -26,15 +26,22 @@ _ft_cat:
 	syscall
 	jc _ft_cat.exit
 	cmp rax, 0
-	jle _ft_cat.exit
+	jle _ft_cat.exit_fail
 	push rdi
 	mov rdi, STDOUT
 	mov rdx, rax
 	mov rax, MACH_SYSCALL(WRITE)
 	syscall
+	test rax, rax
+	jz _ft_cat.exit_fail
 	jmp _ft_cat.read
 
 .exit:
 	mov rax, 0
+	leave
+	ret
+
+.exit_fail:
+	mov rax, 1
 	leave
 	ret
