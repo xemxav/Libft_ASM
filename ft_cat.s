@@ -37,11 +37,11 @@ _ft_cat:
 	jmp _ft_cat.read
 
 .exit:
-	mov rax, 0
+	mov rax, 1
 	leave
 	ret
 
 .exit_fail:
-	mov rax, 1
+	mov rax, 0
 	leave
 	ret
