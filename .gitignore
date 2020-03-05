@@ -4,3 +4,5 @@
 /obj/
 /.idea/
 /cmake-build-debug/
+/tests_libasm/
+/test_cat.out

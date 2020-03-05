@@ -6,7 +6,7 @@
 /*   By: xmoreau <xmoreau@student.le-101.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:54:09 by xmoreau           #+#    #+#             */
-/*   Updated: 2020/03/04 15:38:41 by xmoreau          ###   ########lyon.fr   */
+/*   Updated: 2020/03/05 11:53:12 by xmoreau          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,27 +164,38 @@ void test_memcpy()
 
 void test_strdup()
 {
-//	char *s = "hello world\0";
+//	char *s = "abc";
+	char *s = "abaabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcbcc";
 
-	char *s2 = strdup("coucou");
-	printf("%s %p\n", s2, s2);
-	char *s = ft_strdup("\t");
-	printf("%s %p\n", s, s);
+	char *s2 = strdup(s);
+	printf("%s\n", s2);
+	printf("%d", strcmp(s,s2));
+//	printf("%s %p\n", s2, s2);
+//	char *s = ft_strdup("\t");
+//	printf("%s %p\n", s, s);
 	free(s2);
 }
 
 void test_strcat()
 {
-	char *s;
-	char *s2;
+//	char *s;
+//	char *s2;
+//
+//	s = (char*)malloc(20);
+//	ft_bzero(s, 20);
+//	ft_memset(s, 'a', 10);
+//	s2 = ft_strcat(s, "coucou\0");
+//	printf("%s\n", s);
+//	if (s2 == s)
+//		printf("renvoie la bonne adresse\n");
 
-	s = (char*)malloc(20);
-	ft_bzero(s, 20);
-	ft_memset(s, 'a', 10);
-	s2 = ft_strcat(s, "coucou\0");
-	printf("%s\n", s);
-	if (s2 == s)
-		printf("renvoie la bonne adresse\n");
+	char s1[50] = "1";
+	char s2[50] = "abc";
+
+//	strcat(s1,s2);
+	ft_strcat(s1,s2);
+	printf("%s\n", s1);
+
 }
 
 void test_cat()
@@ -207,11 +218,11 @@ int main()
 //	}
 //	test_strlen();
 //	test_puts();
-	test_memset(20);
+//	test_memset(20);
 //	test_bzero(20);
 //	test_memcpy();
 //	test_strdup();
-//	test_strcat();
+	test_strcat();
 //	test_cat();
 	return (0);
 }
