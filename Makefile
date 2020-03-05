@@ -42,6 +42,10 @@ SRC = $($(addsuffix .s , $(FILES)))
 
 all: $(NAME)
 
+test_cat: $(NAME)
+	$(CC) $(FLAGS) test_cat.c $(NAME) -o test_cat.out
+	@./test_cat.out
+
 test: $(NAME)
 	$(CC) $(FLAGS) test_des_fonctions.c $(NAME) -o test.out
 	@./test.out
