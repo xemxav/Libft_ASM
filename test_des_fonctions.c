@@ -6,7 +6,7 @@
 /*   By: xem <xem@student.le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/02/19 17:54:09 by xmoreau      #+#   ##    ##    #+#       */
-/*   Updated: 2020/04/29 11:17:10 by xem         ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/04/29 11:19:54 by xem         ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -236,17 +236,17 @@ void test_cat(char *filename)
 
 int main()
 {
-	// int i;
+	int i;
 
-	// i = 0;
-	// while (g_func_tab[i].off_func)
-	// {
-	// 	test_range(g_func_tab + i, -5, 128);
-	// 	i++;
-	// }
-	// printf("\n");
-	// test_strlen();
-	// printf("\n");
+	i = 0;
+	while (g_func_tab[i].off_func)
+	{
+		test_range(g_func_tab + i, -5, 128);
+		i++;
+	}
+	printf("\n");
+	test_strlen();
+	printf("\n");
 	test_puts();
 	printf("\n");
 	test_memset(20);
