@@ -14,9 +14,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-
-
-
 typedef struct s_func_couple
 {
 	int			(*off_func)(int);
