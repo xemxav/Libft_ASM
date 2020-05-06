@@ -8,8 +8,8 @@ _ft_memset:
 	mov rbp, rsp
 
 	push rdi
-	mov rcx, rdx ; we put the size in the counter
-	mov rax, rsi ; the return value is the adress
+	mov rcx, rdx
+	mov rax, rsi
 	rep stosb
 	pop rax
 	leave

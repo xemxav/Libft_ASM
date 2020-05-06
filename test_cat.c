@@ -1,5 +1,6 @@
 #include <fcntl.h>
 #include <stdio.h>
+
 int	ft_cat(int fd);
 
 int main(int ac, const char **av) {
